@@ -1,0 +1,30 @@
+iniciarCrud({
+    singular: "turma",
+    endpoint: "/turmas",
+    rotulo: (t) => t.nome,
+    tituloNovo: "Nova turma",
+    tituloEditar: "Editar turma",
+    msgCriado: "Turma criada com sucesso!",
+    msgEditado: "Turma atualizada com sucesso!",
+    msgExcluido: "Turma excluída com sucesso!",
+    campos: [
+        { nome: "nome", rotulo: "Nome da turma", tipo: "text", obrigatorio: true },
+        { nome: "ano", rotulo: "Ano", tipo: "number", obrigatorio: true, min: 2000, max: 2100, padrao: () => new Date().getFullYear() },
+        {
+            nome: "professorId",
+            rotulo: "Professor",
+            tipo: "select",
+            obrigatorio: true,
+            larga: true,
+            endpoint: "/professores",
+            textoOpcao: (p) => p.nome,
+            vazioMsg: "Cadastre um professor antes de criar turmas.",
+        },
+    ],
+    colunas: [
+        { titulo: "Turma", valor: (t) => t.nome },
+        { titulo: "Ano", valor: (t) => t.ano },
+        { titulo: "Professor", valor: (t) => t.professorNome },
+        { titulo: "Alunos", valor: (t) => t.quantidadeAlunos },
+    ],
+});

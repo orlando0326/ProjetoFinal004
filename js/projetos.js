@@ -1,0 +1,30 @@
+iniciarCrud({
+    singular: "projeto",
+    endpoint: "/projetos",
+    rotulo: (p) => p.titulo,
+    tituloNovo: "Novo projeto",
+    tituloEditar: "Editar projeto",
+    msgCriado: "Projeto criado com sucesso!",
+    msgEditado: "Projeto atualizado com sucesso!",
+    msgExcluido: "Projeto excluído com sucesso!",
+    campos: [
+        { nome: "titulo", rotulo: "Título", tipo: "text", obrigatorio: true },
+        {
+            nome: "alunoId",
+            rotulo: "Aluno",
+            tipo: "select",
+            obrigatorio: true,
+            endpoint: "/alunos",
+            textoOpcao: (a) => a.nome + " (" + a.matricula + ")",
+            vazioMsg: "Cadastre um aluno antes de criar projetos.",
+        },
+        { nome: "descricao", rotulo: "Descrição", tipo: "textarea", obrigatorio: true, larga: true },
+        { nome: "linkRepositorio", rotulo: "Link do repositório", tipo: "url", placeholder: "https://github.com/...", larga: true },
+    ],
+    colunas: [
+        { titulo: "Título", valor: (p) => p.titulo },
+        { titulo: "Aluno", valor: (p) => p.alunoNome },
+        { titulo: "Criado em", valor: (p) => formatarData(p.dataCriacao) },
+        { titulo: "Repositório", valor: () => "Abrir", href: (p) => p.linkRepositorio },
+    ],
+});

@@ -1,0 +1,32 @@
+iniciarCrud({
+    singular: "aluno",
+    endpoint: "/alunos",
+    rotulo: (a) => a.nome,
+    tituloNovo: "Novo aluno",
+    tituloEditar: "Editar aluno",
+    msgCriado: "Aluno cadastrado com sucesso!",
+    msgEditado: "Aluno atualizado com sucesso!",
+    msgExcluido: "Aluno excluído com sucesso!",
+    campos: [
+        { nome: "nome", rotulo: "Nome", tipo: "text", obrigatorio: true },
+        { nome: "matricula", rotulo: "Matrícula", tipo: "text", obrigatorio: true },
+        { nome: "email", rotulo: "E-mail", tipo: "email", obrigatorio: true },
+        {
+            nome: "turmaId",
+            rotulo: "Turma",
+            tipo: "select",
+            obrigatorio: true,
+            endpoint: "/turmas",
+            textoOpcao: (t) => t.nome + " (" + t.ano + ")",
+            vazioMsg: "Cadastre uma turma antes de cadastrar alunos.",
+        },
+    ],
+    colunas: [
+        { titulo: "Nome", valor: (a) => a.nome },
+        { titulo: "Matrícula", valor: (a) => a.matricula },
+        { titulo: "E-mail", valor: (a) => a.email },
+        { titulo: "Turma", valor: (a) => a.turmaNome },
+        { titulo: "Projetos", valor: (a) => a.quantidadeProjetos },
+    ],
+    acoesExtras: [{ texto: "Portfólio", href: (a) => "portfolios.html?id=" + a.id }],
+});

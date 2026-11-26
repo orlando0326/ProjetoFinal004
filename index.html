@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar | Portfólio Acadêmico</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="login/login.css">
+</head>
+
+<body class="login-page">
+    <main class="login-layout">
+        <section class="login-side">
+            <a class="brand login-brand" href="index.html">
+                <span class="brand-mark">P</span>
+                <span class="brand-name">Portfólio Acadêmico<span class="brand-subtitle">Conhecimento em projetos</span></span>
+            </a>
+
+            <div class="login-message">
+                <p class="eyebrow">Um espaço para compartilhar</p>
+                <h1>Ideias que viram projetos. Projetos que contam histórias.</h1>
+                <p>Conheça os trabalhos, as habilidades e as conquistas dos alunos em um só lugar.</p>
+                <div class="login-art">
+                    <div class="art-card"><span>✦</span><strong>Aprendizado</strong><small>Novas ideias e
+                            descobertas</small></div>
+                    <div class="art-card"><span>⌘</span><strong>Projetos</strong><small>Conhecimento em prática</small>
+                    </div>
+                </div>
+            </div>
+            <p class="login-copyright">© 2026 Portfólio Acadêmico</p>
+        </section>
+
+        <section class="login-form-side">
+            <div class="login-form-card">
+                <div class="login-mobile-brand"><span class="brand-mark">P</span></div>
+                <p class="eyebrow">Acesso ao portal</p>
+                <h2>Bem-vindo!</h2>
+                <p class="form-intro">Este acesso é demonstrativo. Não é necessário informar usuário ou senha.</p>
+
+                <form class="login-fields" id="loginForm" novalidate>
+                    <label for="usuario">Usuário (opcional)</label>
+                    <input id="usuario" name="usuario" type="text" placeholder="Opcional — não precisa preencher"
+                        autocomplete="username">
+
+                    <label for="senha">Senha (não necessária)</label>
+                    <input id="senha" name="senha" type="password" placeholder="Deixe em branco"
+                        autocomplete="current-password">
+
+                    <div class="login-options">
+                        <label class="remember"><input type="checkbox" name="lembrar"> Manter conectado</label>
+                    </div>
+
+                    <button class="btn btn-primary login-submit" type="submit">Entrar como visitante <span>→</span></button>
+                    <p class="login-feedback" id="loginFeedback" role="status" aria-live="polite"></p>
+                </form>
+
+                <p class="login-alt">Acesso livre para demonstração do sistema.</p>
+            </div>
+        </section>
+    </main>
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="login/login.js"></script>
+</body>
+
+</html>
